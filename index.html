@@ -1,0 +1,194 @@
+<!DOCTYPE html> <html><head>
+    <title>Dereck's PlayList createtask!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Your CSS -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+  <style>h1 {
+  text-align: center;
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+}
+
+.column {
+  width: 18%;
+  padding: 25px 0px;
+}
+
+.images img {
+  display: block;
+  height: 100px;
+  width: auto;
+  margin: 20px;
+}
+
+.songs p {
+  font-size: 18px;
+  height: 100px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.artists p {
+  font-size: 18px;
+  height: 100px;
+  margin: 20px;
+}
+
+.lengths p {
+  font-size: 16px;
+  height: 100px;
+  margin: 20px;
+  text-align: right;
+}
+
+.links a {
+  display: block;
+  font-size: 18px;
+  height: 100px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.form {
+  width: 75%;
+  margin: 0 auto 20px auto;
+  font-size: 18px;
+}
+
+input {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+button {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+</style></head>
+
+  <body>
+    <h1>My Cool Playlist:)</h1>
+    <div class="form">
+      <p>Add a new song:</p>
+      <input placeholder="Song Title" class="title">
+      <input placeholder="Artist Name" class="artist">
+      <input placeholder="Image URL" class="image">
+      <input placeholder="Song Link Address" class="link">
+      <button id="add">Add</button>
+    </div>
+    <div class="display">
+      <div class="column images"></div>
+      <div class="column songs"></div>
+      <div class="column artists"></div>
+      <div class="column links"></div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Your Javascript -->
+    <script src="js/script.js"></script>
+  
+
+<script>
+/*__POPCODESTART__*/
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+// $(".add").click(function() {
+// });
+//playlist.forEach(function(song){
+//$('.songs').append("<li>" + song + "</li>");
+
+/*let artists = ["Joeybadass", "Sweet William", "Asap Rocky"];
+let songTitles = ["500 benz", "Amaneki", "Potato Salad"];
+let songImages = [
+  "<img src='https://i1.sndcdn.com/artworks-000232005136-bfpmog-t500x500.jpg'/>",
+  "<img src='https://i.scdn.co/image/ab6761610000e5eb6cc5bc022d9428eb860cb467'/>",
+  "<img src='https://i1.sndcdn.com/artworks-nyWDcGAzfsxVfbAp-G8kfyw-t500x500.jpg'/>",
+];*/
+var songOne = {
+  title: "500 benz",
+  artist: "Joeybadass",
+  songImage: "https://i1.sndcdn.com/artworks-000232005136-bfpmog-t500x500.jpg",
+  songLinks: "https://youtu.be/FK4CaraYWc4"
+};
+var songTwo = {
+  title: "Amaneki",
+  artist: "Sweet William",
+  songImage: "https://i.scdn.co/image/ab6761610000e5eb6cc5bc022d9428eb860cb467",
+  songLinks: "https://youtu.be/90sin6nP144"
+};
+var songThree = {
+  title: "Potato Salad",
+  artist: "Asap Rocky’ ft Tyler The Creator",
+  songImage: "https://i1.sndcdn.com/artworks-nyWDcGAzfsxVfbAp-G8kfyw-t500x500.jpg",
+  songLinks: "https://youtu.be/93M1QtYDtpU"
+};
+var everything = [songOne, songTwo, songThree];
+
+function displaySongInfo() {
+  // use for in loops
+  var _iterator = _createForOfIteratorHelper(everything),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var song = _step.value;
+      $(".songs").append("<p> ".concat(song.title, "</p>"));
+      $(".artists").append(" <p> ".concat(song.artist, " </p>"));
+      $(".images").append(" <p> <img src= \"".concat(song.songImage, "\" </p>"));
+      $(".links").append(" <a href = ".concat(song.songLinks, " target=\"_blank\" > link   </a>"));
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+}
+
+function emptySongInfo() {
+  /* this function empties the divs each time the button is 
+  clicked so that the playlist does not repeatedly add the data
+  too many times.  */
+  $(".songs").empty();
+  $(".images").empty();
+  $(".artists").empty();
+  $(".links").empty();
+}
+
+function addSongInfo() {
+  var collect = {
+    title: $(".title").val(),
+    artist: $(".artist").val(),
+    songImage: $(".image").val(),
+    songLinks: $(".link").val()
+  };
+  everything.push(collect);
+  console.log(everything);
+}
+
+$("#add").click(function () {
+  emptySongInfo();
+  addSongInfo();
+  displaySongInfo();
+});
+displaySongInfo(); //If else
+
+var count = 0;
+$("h1").click(function () {
+  if (count % 2 === 0) {
+    $("h1").css("color", "red");
+  } else {
+    $("h1").css("color", "blue");
+  }
+
+  count++;
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbInNvbmdPbmUiLCJ0aXRsZSIsImFydGlzdCIsInNvbmdJbWFnZSIsInNvbmdMaW5rcyIsInNvbmdUd28iLCJzb25nVGhyZWUiLCJldmVyeXRoaW5nIiwiZGlzcGxheVNvbmdJbmZvIiwic29uZyIsIiQiLCJhcHBlbmQiLCJlbXB0eVNvbmdJbmZvIiwiZW1wdHkiLCJhZGRTb25nSW5mbyIsImNvbGxlY3QiLCJ2YWwiLCJwdXNoIiwiY29uc29sZSIsImxvZyIsImNsaWNrIiwiY291bnQiLCJjc3MiXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBO0FBQ0E7QUFDQTtBQUNBOztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsSUFBSUEsT0FBTyxHQUFHO0FBQ1pDLEVBQUFBLEtBQUssRUFBRSxVQURLO0FBRVpDLEVBQUFBLE1BQU0sRUFBRSxZQUZJO0FBR1pDLEVBQUFBLFNBQVMsRUFBRSxpRUFIQztBQUlaQyxFQUFBQSxTQUFTLEVBQUU7QUFKQyxDQUFkO0FBT0EsSUFBSUMsT0FBTyxHQUFHO0FBQ1pKLEVBQUFBLEtBQUssRUFBRSxTQURLO0FBRVpDLEVBQUFBLE1BQU0sRUFBRSxlQUZJO0FBR1pDLEVBQUFBLFNBQVMsRUFBRSxrRUFIQztBQUlaQyxFQUFBQSxTQUFTLEVBQUU7QUFKQyxDQUFkO0FBT0EsSUFBSUUsU0FBUyxHQUFHO0FBQ2RMLEVBQUFBLEtBQUssRUFBRSxjQURPO0FBRWRDLEVBQUFBLE1BQU0sRUFBRSxrQ0FGTTtBQUdkQyxFQUFBQSxTQUFTLEVBQUUscUVBSEc7QUFJZEMsRUFBQUEsU0FBUyxFQUFFO0FBSkcsQ0FBaEI7QUFPQSxJQUFJRyxVQUFVLEdBQUcsQ0FBQ1AsT0FBRCxFQUFTSyxPQUFULEVBQWlCQyxTQUFqQixDQUFqQjs7QUFFQSxTQUFTRSxlQUFULEdBQTJCO0FBRXpCO0FBRnlCLDZDQUdSRCxVQUhRO0FBQUE7O0FBQUE7QUFHekIsd0RBQTZCO0FBQUEsVUFBcEJFLElBQW9CO0FBQzNCQyxNQUFBQSxDQUFDLENBQUMsUUFBRCxDQUFELENBQVlDLE1BQVosZUFBMEJGLElBQUksQ0FBQ1IsS0FBL0I7QUFDQVMsTUFBQUEsQ0FBQyxDQUFDLFVBQUQsQ0FBRCxDQUFjQyxNQUFkLGdCQUE2QkYsSUFBSSxDQUFDUCxNQUFsQztBQUNDUSxNQUFBQSxDQUFDLENBQUMsU0FBRCxDQUFELENBQWFDLE1BQWIsNEJBQXVDRixJQUFJLENBQUNOLFNBQTVDO0FBQ0VPLE1BQUFBLENBQUMsQ0FBQyxRQUFELENBQUQsQ0FBWUMsTUFBWixzQkFBaUNGLElBQUksQ0FBQ0wsU0FBdEM7QUFJSjtBQVh3QjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBYTFCOztBQUVELFNBQVNRLGFBQVQsR0FBeUI7QUFDdkI7QUFDRjtBQUNBO0FBQ0VGLEVBQUFBLENBQUMsQ0FBQyxRQUFELENBQUQsQ0FBWUcsS0FBWjtBQUNBSCxFQUFBQSxDQUFDLENBQUMsU0FBRCxDQUFELENBQWFHLEtBQWI7QUFDQUgsRUFBQUEsQ0FBQyxDQUFDLFVBQUQsQ0FBRCxDQUFjRyxLQUFkO0FBQ0FILEVBQUFBLENBQUMsQ0FBQyxRQUFELENBQUQsQ0FBWUcsS0FBWjtBQUNEOztBQUVELFNBQVNDLFdBQVQsR0FBdUI7QUFFckIsTUFBSUMsT0FBTyxHQUFHO0FBQ1pkLElBQUFBLEtBQUssRUFBRVMsQ0FBQyxDQUFDLFFBQUQsQ0FBRCxDQUFZTSxHQUFaLEVBREs7QUFFWmQsSUFBQUEsTUFBTSxFQUFFUSxDQUFDLENBQUMsU0FBRCxDQUFELENBQWFNLEdBQWIsRUFGSTtBQUdaYixJQUFBQSxTQUFTLEVBQUVPLENBQUMsQ0FBQyxRQUFELENBQUQsQ0FBWU0sR0FBWixFQUhDO0FBSVpaLElBQUFBLFNBQVMsRUFBRU0sQ0FBQyxDQUFDLE9BQUQsQ0FBRCxDQUFXTSxHQUFYO0FBSkMsR0FBZDtBQU9BVCxFQUFBQSxVQUFVLENBQUNVLElBQVgsQ0FBZ0JGLE9BQWhCO0FBRUFHLEVBQUFBLE9BQU8sQ0FBQ0MsR0FBUixDQUFZWixVQUFaO0FBRUQ7O0FBR0RHLENBQUMsQ0FBQyxNQUFELENBQUQsQ0FBVVUsS0FBVixDQUFnQixZQUFZO0FBQzFCUixFQUFBQSxhQUFhO0FBQ2JFLEVBQUFBLFdBQVc7QUFDWE4sRUFBQUEsZUFBZTtBQUNoQixDQUpEO0FBTUFBLGVBQWUsRyxDQUNmOztBQUVBLElBQUlhLEtBQUssR0FBRyxDQUFaO0FBQ0FYLENBQUMsQ0FBQyxJQUFELENBQUQsQ0FBUVUsS0FBUixDQUFjLFlBQVk7QUFDdEIsTUFBR0MsS0FBSyxHQUFHLENBQVIsS0FBYyxDQUFqQixFQUFtQjtBQUNqQlgsSUFBQUEsQ0FBQyxDQUFDLElBQUQsQ0FBRCxDQUFRWSxHQUFSLENBQVksT0FBWixFQUFvQixLQUFwQjtBQUNELEdBRkQsTUFHSTtBQUNKWixJQUFBQSxDQUFDLENBQUMsSUFBRCxDQUFELENBQVFZLEdBQVIsQ0FBWSxPQUFaLEVBQW9CLE1BQXBCO0FBQ007O0FBQ05ELEVBQUFBLEtBQUs7QUFDUixDQVJEIiwic291cmNlc0NvbnRlbnQiOlsiLy8gJChcIi5hZGRcIikuY2xpY2soZnVuY3Rpb24oKSB7XG4vLyB9KTtcbi8vcGxheWxpc3QuZm9yRWFjaChmdW5jdGlvbihzb25nKXtcbi8vJCgnLnNvbmdzJykuYXBwZW5kKFwiPGxpPlwiICsgc29uZyArIFwiPC9saT5cIik7XG4vKmxldCBhcnRpc3RzID0gW1wiSm9leWJhZGFzc1wiLCBcIlN3ZWV0IFdpbGxpYW1cIiwgXCJBc2FwIFJvY2t5XCJdO1xubGV0IHNvbmdUaXRsZXMgPSBbXCI1MDAgYmVuelwiLCBcIkFtYW5la2lcIiwgXCJQb3RhdG8gU2FsYWRcIl07XG5sZXQgc29uZ0ltYWdlcyA9IFtcbiAgXCI8aW1nIHNyYz0naHR0cHM6Ly9pMS5zbmRjZG4uY29tL2FydHdvcmtzLTAwMDIzMjAwNTEzNi1iZnBtb2ctdDUwMHg1MDAuanBnJy8+XCIsXG4gIFwiPGltZyBzcmM9J2h0dHBzOi8vaS5zY2RuLmNvL2ltYWdlL2FiNjc2MTYxMDAwMGU1ZWI2Y2M1YmMwMjJkOTQyOGViODYwY2I0NjcnLz5cIixcbiAgXCI8aW1nIHNyYz0naHR0cHM6Ly9pMS5zbmRjZG4uY29tL2FydHdvcmtzLW55V0RjR0F6ZnN4VmZiQXAtRzhrZnl3LXQ1MDB4NTAwLmpwZycvPlwiLFxuXTsqL1xubGV0IHNvbmdPbmUgPSB7XG4gIHRpdGxlOiBcIjUwMCBiZW56XCIsXG4gIGFydGlzdDogXCJKb2V5YmFkYXNzXCIsXG4gIHNvbmdJbWFnZTogXCJodHRwczovL2kxLnNuZGNkbi5jb20vYXJ0d29ya3MtMDAwMjMyMDA1MTM2LWJmcG1vZy10NTAweDUwMC5qcGdcIixcbiAgc29uZ0xpbmtzOiBcImh0dHBzOi8veW91dHUuYmUvRks0Q2FyYVlXYzRcIlxufTtcblxubGV0IHNvbmdUd28gPSB7XG4gIHRpdGxlOiBcIkFtYW5la2lcIixcbiAgYXJ0aXN0OiBcIlN3ZWV0IFdpbGxpYW1cIixcbiAgc29uZ0ltYWdlOiBcImh0dHBzOi8vaS5zY2RuLmNvL2ltYWdlL2FiNjc2MTYxMDAwMGU1ZWI2Y2M1YmMwMjJkOTQyOGViODYwY2I0NjdcIixcbiAgc29uZ0xpbmtzOiBcImh0dHBzOi8veW91dHUuYmUvOTBzaW42blAxNDRcIlxufTtcblxubGV0IHNvbmdUaHJlZSA9IHtcbiAgdGl0bGU6IFwiUG90YXRvIFNhbGFkXCIsXG4gIGFydGlzdDogXCJBc2FwIFJvY2t54oCZIGZ0IFR5bGVyIFRoZSBDcmVhdG9yXCIsXG4gIHNvbmdJbWFnZTogXCJodHRwczovL2kxLnNuZGNkbi5jb20vYXJ0d29ya3MtbnlXRGNHQXpmc3hWZmJBcC1HOGtmeXctdDUwMHg1MDAuanBnXCIsXG4gIHNvbmdMaW5rczogXCJodHRwczovL3lvdXR1LmJlLzkzTTFRdFlEdHBVXCJcbn07XG5cbmxldCBldmVyeXRoaW5nID0gW3NvbmdPbmUsc29uZ1R3byxzb25nVGhyZWVdO1xuXG5mdW5jdGlvbiBkaXNwbGF5U29uZ0luZm8oKSB7XG4gIFxuICAvLyB1c2UgZm9yIGluIGxvb3BzXG4gIGZvciAobGV0IHNvbmcgb2YgZXZlcnl0aGluZykge1xuICAgICQoXCIuc29uZ3NcIikuYXBwZW5kKGA8cD4gJHtzb25nLnRpdGxlfTwvcD5gICk7IFxuICAgICQoXCIuYXJ0aXN0c1wiKS5hcHBlbmQoYCA8cD4gJHtzb25nLmFydGlzdH0gPC9wPmApOyBcbiAgICAgJChcIi5pbWFnZXNcIikuYXBwZW5kKGAgPHA+IDxpbWcgc3JjPSBcIiR7c29uZy5zb25nSW1hZ2V9XCIgPC9wPmApOyBcbiAgICAgICAkKFwiLmxpbmtzXCIpLmFwcGVuZChgIDxhIGhyZWYgPSAke3Nvbmcuc29uZ0xpbmtzfSB0YXJnZXQ9XCJfYmxhbmtcIiA+IGxpbmsgICA8L2E+YCk7IFxuICAgIFxuICAgIFxuICAgXG4gIH1cbiAgXG59XG5cbmZ1bmN0aW9uIGVtcHR5U29uZ0luZm8oKSB7XG4gIC8qIHRoaXMgZnVuY3Rpb24gZW1wdGllcyB0aGUgZGl2cyBlYWNoIHRpbWUgdGhlIGJ1dHRvbiBpcyBcbiAgY2xpY2tlZCBzbyB0aGF0IHRoZSBwbGF5bGlzdCBkb2VzIG5vdCByZXBlYXRlZGx5IGFkZCB0aGUgZGF0YVxuICB0b28gbWFueSB0aW1lcy4gICovXG4gICQoXCIuc29uZ3NcIikuZW1wdHkoKTtcbiAgJChcIi5pbWFnZXNcIikuZW1wdHkoKTtcbiAgJChcIi5hcnRpc3RzXCIpLmVtcHR5KCk7XG4gICQoXCIubGlua3NcIikuZW1wdHkoKTtcbn1cblxuZnVuY3Rpb24gYWRkU29uZ0luZm8oKSB7XG5cbiAgbGV0IGNvbGxlY3QgPSB7XG4gICAgdGl0bGU6ICQoXCIudGl0bGVcIikudmFsKCksXG4gICAgYXJ0aXN0OiAkKFwiLmFydGlzdFwiKS52YWwoKSxcbiAgICBzb25nSW1hZ2U6ICQoXCIuaW1hZ2VcIikudmFsKCksXG4gICAgc29uZ0xpbmtzOiAkKFwiLmxpbmtcIikudmFsKClcbiAgfTtcbiAgIFxuICBldmVyeXRoaW5nLnB1c2goY29sbGVjdCk7XG4gIFxuICBjb25zb2xlLmxvZyhldmVyeXRoaW5nKTtcbiAgXG59XG5cblxuJChcIiNhZGRcIikuY2xpY2soZnVuY3Rpb24gKCkge1xuICBlbXB0eVNvbmdJbmZvKCk7XG4gIGFkZFNvbmdJbmZvKCk7IFxuICBkaXNwbGF5U29uZ0luZm8oKTtcbn0pO1xuXG5kaXNwbGF5U29uZ0luZm8oKTtcbi8vSWYgZWxzZVxuXG5sZXQgY291bnQgPSAwO1xuJChcImgxXCIpLmNsaWNrKGZ1bmN0aW9uICgpIHtcbiAgICBpZihjb3VudCAlIDIgPT09IDApe1xuICAgICAgJChcImgxXCIpLmNzcyhcImNvbG9yXCIsXCJyZWRcIik7ICBcbiAgICB9XG4gICAgZWxzZXtcbiAgICAkKFwiaDFcIikuY3NzKFwiY29sb3JcIixcImJsdWVcIik7XG4gICAgICAgICB9XG4gICAgY291bnQrKzsgXG59KTtcblxuXG5cblxuXG4iXX0=</script></body></html>
